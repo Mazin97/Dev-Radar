@@ -1,4 +1,6 @@
 const axios = require("axios");
+const mongoose = require("mongoose");
+
 const Dev = require("../models/Dev");
 const { findConnections, sendMessage } = require("../websocket");
 
@@ -44,5 +46,29 @@ module.exports = {
     }
 
     return res.json(dev);
+  },
+
+  async delete(req, res) {
+    const { id } = req.headers;
+
+    console.log(id);
+
+    if (!id) {
+      return res.status(400).json("Parâmetro(s) insuficiente(s)");
+    }
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json("Parâmetro(s) inválido(s)");
+    }
+
+    await Dev.findByIdAndRemove(id, err => {
+      if (err) {
+        return res
+          .status(400)
+          .json("Erro interno, tente novamente mais tarde.");
+      }
+
+      return res.status(200).json("Sucesso! dev removido.");
+    });
   }
 };
