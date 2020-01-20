@@ -1,0 +1,33 @@
+{
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es6": true,
+		"node": true
+	},
+	"extends": [
+		"airbnb"
+	],
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly"
+	},
+	
+	"plugins": [
+		"react",
+		"jsx-a11y",
+		"import"
+	],
+	"rules": {
+		"react/jsx-filename-extension": [
+			"error",
+			{
+				"entensions": [".js", ".jsx"]
+			}
+		],
+		"global-require": "off",
+		"import/prefer-default-export": "off",
+		"no-unused-expressions": ["error", { "allowTaggedTemplates": true }]
+	}
+}
