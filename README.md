@@ -22,6 +22,17 @@ de conectar desenvolvedores através de tecnologias de interesse e proximidade.
 
 # Imagens do Projeto
 
+<p align="center">
+  <img width="80%" src="./images/front1.PNG" alt="exemplo da parte front-end da aplicação 1" />
+</p>
+
+<p align="center">
+  <img width="80%" src="./images/front2.PNG" alt="exemplo da parte front-end da aplicação 2" />
+</p>
+
+<p align="center">
+  <img width="300px" height="600px" src="./images/mobile.jpg" alt="exemplo da parte mobile da aplicação" />
+</p>
 
 # Rodando localmente
 
@@ -40,7 +51,7 @@ de conectar desenvolvedores através de tecnologias de interesse e proximidade.
 ```
 
 <p>
-  Inicialmente, você precisa instalar todas as dependências de funcionamento do projeto, para isso, com o terminal aberto na pasta do projeto, execute:
+  Inicialmente, você precisa instalar todas as dependências de funcionamento do projeto, para isso, com o terminal aberto na pasta do   projeto, execute:
 </p>
 
 ```
@@ -50,6 +61,8 @@ de conectar desenvolvedores através de tecnologias de interesse e proximidade.
 ### Backend
 
 Pra funcionar 100%, é fundamental colocar suas credenciais de um cluster do [MongoDB](https://www.mongodb.com/cloud/atlas) no arquivo index.js.
+
+<img src="./images/credenciais.PNG" alt="credenciais do mongoDB" />
 
 <p>
   Para iniciar o backend, com o seu terminal aberto na pasta do projeto, execute o seguinte script: 
@@ -95,6 +108,14 @@ Para inicializar a aplicação, utilize esse script:
   no seu terminal que rodou o script anteriormente. Depois disso é só aguardar o expo carregar o aplicativo!
 </p>
 
+<p align="center">
+  <img src="./images/expo.PNG" alt="exemplo do QRCode" />
+</p>
+
+</br>
+
 <p>
   Pronto! agora você já pode escolher suas Techs preferidas e conectar-se com desenvolvedores próximos :D
 </p>
+
+Obrigado Rocketseat pela oportunidade!
