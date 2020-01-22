@@ -1,6 +1,6 @@
 aside {
-  width: 320px; 
-  background: #FFF;
+  width: 320px;
+  background: #fff;
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
   border-radius: 2px;
   padding: 30px 20px;
@@ -33,7 +33,7 @@ aside form .input-group .input-block {
 }
 
 aside form .input-block label {
-  color: #ACACAC;
+  color: #acacac;
   font-size: 14px;
   font-weight: bold;
   display: block;
@@ -48,7 +48,7 @@ aside form .input-block input {
   border-bottom: 1px solid #eee;
 }
 
-aside form button[type=submit] {
+aside form button[type='submit'] {
   width: 100%;
   border: 0;
   margin-top: 30px;
@@ -62,6 +62,6 @@ aside form button[type=submit] {
   transition: background 0.5s;
 }
 
-aside form button[type=submit]:hover {
+aside form button[type='submit']:hover {
   background: #6931ca;
 }

@@ -1,9 +1,9 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const http = require("http");
-const routes = require("./routes");
-const { setupWebSocket } = require("./websocket");
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const http = require('http');
+const routes = require('./routes');
+const { setupWebSocket } = require('./websocket');
 
 const app = express();
 const server = http.Server(app);
@@ -11,10 +11,10 @@ const server = http.Server(app);
 setupWebSocket(server);
 
 mongoose.connect(
-  "mongodb+srv://mateusUser:master123@cluster0-fnr9l.mongodb.net/omnistack10?retryWrites=true&w=majority",
+  'mongodb+srv://<user>:<password>@cluster0-fnr9l.mongodb.net/omnistack10?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   }
 );
 

@@ -7,30 +7,28 @@ function DevForm({ onSubmit }) {
   const [longitude, setLongitude] = useState('');
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
+    global.navigator.geolocation.getCurrentPosition(
+      position => {
+        // eslint-disable-next-line no-shadow
         const { latitude, longitude } = position.coords;
-        
+
         setLatitude(latitude);
         setLongitude(longitude);
       },
-      (err) => {
-        console.log(err);
-      },
       {
-        timeout:  30000,
+        timeout: 30000,
       }
     );
   }, []);
-  
+
   async function handleSubmit(e) {
-    e.preventDefault();  
+    e.preventDefault();
 
     await onSubmit({
-        github_username,
-        techs,
-        latitude,
-        longitude
+      github_username,
+      techs,
+      latitude,
+      longitude,
     });
 
     setGithubUsername('');
@@ -41,7 +39,7 @@ function DevForm({ onSubmit }) {
     <form onSubmit={handleSubmit}>
       <div className="input-block">
         <label htmlFor="github_username">Usuário do Github</label>
-        <input 
+        <input
           type="text"
           name="github_username"
           id="github_username"
@@ -53,7 +51,7 @@ function DevForm({ onSubmit }) {
 
       <div className="input-block">
         <label htmlFor="techs">Tecnologias</label>
-        <input 
+        <input
           name="techs"
           id="techs"
           required
@@ -66,11 +64,11 @@ function DevForm({ onSubmit }) {
       <div className="input-group">
         <div className="input-block">
           <label htmlFor="latitude">Latitude</label>
-          <input 
-            type="number" 
-            name="latitude" 
-            id="latitude" 
-            required 
+          <input
+            type="number"
+            name="latitude"
+            id="latitude"
+            required
             value={latitude}
             onChange={e => setLatitude(e.target.value)}
           />
@@ -78,7 +76,7 @@ function DevForm({ onSubmit }) {
 
         <div className="input-block">
           <label htmlFor="longitude">Longitude</label>
-          <input 
+          <input
             type="number"
             name="longitude"
             id="longitude"

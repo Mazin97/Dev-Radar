@@ -14,12 +14,8 @@ function connect(latitude, longitude, techs) {
     longitude,
     techs,
   };
-  
-  socket.connect();
 
-  socket.on('message', text => {
-    console.log(text)
-  });
+  socket.connect();
 }
 
 function disconnect() {
@@ -28,8 +24,4 @@ function disconnect() {
   }
 }
 
-export {
-  connect,
-  disconnect,
-  subscribeToNewDevs,
-};
+export { connect, disconnect, subscribeToNewDevs };

@@ -5,27 +5,30 @@ import Main from './pages/Main';
 import Profile from './pages/Profile';
 
 const Routes = createAppContainer(
-  createStackNavigator({
-    Main: {
-      screen: Main,
-      navigationOptions: {
-        title: 'DevRadar'
+  createStackNavigator(
+    {
+      Main: {
+        screen: Main,
+        navigationOptions: {
+          title: 'DevRadar',
+        },
+      },
+      Profile: {
+        screen: Profile,
+        navigationOptions: {
+          title: 'Perfil do Github',
+        },
       },
     },
-    Profile: {
-      screen: Profile,
-      navigationOptions: {
-        title: 'Perfil do Github'
+    {
+      defaultNavigationOptions: {
+        headerTintColor: '#FFF',
+        headerStyle: {
+          backgroundColor: '#7d40E7',
+        },
       },
-    },
-  }, {
-    defaultNavigationOptions: {
-      headerTintColor: '#FFF',
-      headerStyle: {
-        backgroundColor: '#7d40E7',
-      }
-    },
-  })
+    }
+  )
 );
 
 export default Routes;

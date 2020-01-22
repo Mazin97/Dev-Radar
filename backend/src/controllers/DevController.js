@@ -1,8 +1,8 @@
-const axios = require("axios");
-const mongoose = require("mongoose");
+const axios = require('axios');
+const mongoose = require('mongoose');
 
-const Dev = require("../models/Dev");
-const { findConnections, sendMessage } = require("../websocket");
+const Dev = require('../models/Dev');
+const { findConnections, sendMessage } = require('../websocket');
 
 module.exports = {
   async index(req, res) {
@@ -15,7 +15,7 @@ module.exports = {
     const { github_username, techs, latitude, longitude } = req.body;
 
     if (!github_username) {
-      return res.status(400).json("Parâmetro(s) Insuficiente(s).");
+      return res.status(400).json('Parâmetro(s) Insuficiente(s).');
     }
 
     let dev = await Dev.findOne({ github_username });
@@ -27,9 +27,9 @@ module.exports = {
 
       const { name, avatar_url, bio } = response.data;
 
-      location = {
-        type: "Point",
-        coordinates: [longitude, latitude]
+      const location = {
+        type: 'Point',
+        coordinates: [longitude, latitude],
       };
 
       dev = await Dev.create({
@@ -38,7 +38,7 @@ module.exports = {
         avatar_url,
         bio,
         techs,
-        location
+        location,
       });
 
       const sendSocketMessageTo = findConnections(
@@ -46,31 +46,32 @@ module.exports = {
         techs
       );
 
-      sendMessage(sendSocketMessageTo, "new-dev", dev);
+      sendMessage(sendSocketMessageTo, 'new-dev', dev);
     }
 
     return res.json(dev);
   },
 
+  // eslint-disable-next-line consistent-return
   async delete(req, res) {
     const { id } = req.headers;
 
     if (!id) {
-      return res.status(400).json("Parâmetro(s) insuficiente(s)");
+      return res.status(400).json('Parâmetro(s) insuficiente(s)');
     }
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).json("Parâmetro(s) inválido(s)");
+      return res.status(400).json('Parâmetro(s) inválido(s)');
     }
 
     await Dev.findByIdAndRemove(id, err => {
       if (err) {
         return res
           .status(400)
-          .json("Erro interno, tente novamente mais tarde.");
+          .json('Erro interno, tente novamente mais tarde.');
       }
 
-      return res.status(200).json("Sucesso! dev removido.");
+      return res.status(200).json('Sucesso! dev removido.');
     });
-  }
+  },
 };

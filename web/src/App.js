@@ -12,14 +12,14 @@ import DevForm from './components/DevForm';
 function App() {
   const [devs, setDevs] = useState([]);
 
-  useEffect(() => {
-    loadDevs();
-  }, []);
-
   async function loadDevs() {
     const response = await api.get('/devs');
     setDevs(response.data);
   }
+
+  useEffect(() => {
+    loadDevs();
+  }, []);
 
   async function handleAddDev(data) {
     const response = await api.post('/devs', data);
