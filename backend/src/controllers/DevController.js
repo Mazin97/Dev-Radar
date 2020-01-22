@@ -14,6 +14,10 @@ module.exports = {
   async store(req, res) {
     const { github_username, techs, latitude, longitude } = req.body;
 
+    if (!github_username) {
+      return res.status(400).json("Parâmetro(s) Insuficiente(s).");
+    }
+
     let dev = await Dev.findOne({ github_username });
 
     if (!dev) {
@@ -50,8 +54,6 @@ module.exports = {
 
   async delete(req, res) {
     const { id } = req.headers;
-
-    console.log(id);
 
     if (!id) {
       return res.status(400).json("Parâmetro(s) insuficiente(s)");
